@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>splashsenzaicone.svg</file>
+        <file>splash.mp4</file>
+    </qresource>
+</RCC>
