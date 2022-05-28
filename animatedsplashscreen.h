@@ -17,12 +17,15 @@ class AnimatedSplashScreen : public QWidget
 public:
     explicit AnimatedSplashScreen(QMainWindow* mw = nullptr, QWidget *parent = nullptr);
     ~AnimatedSplashScreen();
+    void setScreenSize(int width, int height);
 
 private:
     Ui::AnimatedSplashScreen *ui;
     QMediaPlayer* mediaPlayer;
     QVideoWidget* videoWidget;
     QMainWindow* mainWindow;
+    int SCREEN_WIDTH = 1920;
+    int SCREEN_HEIGHT = 1080;
 
 private slots:
     void closeWindow();

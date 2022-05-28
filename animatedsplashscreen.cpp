@@ -5,10 +5,6 @@
 #include <QtMultimediaWidgets/QVideoWidget>
 #include <QDebug>
 
-#define SCREEN_WIDTH 1366
-#define SCREEN_HEIGHT 768
-#define VIDEO_PATH "qrc:/splash.mp4"
-
 AnimatedSplashScreen::AnimatedSplashScreen(QMainWindow* mw, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AnimatedSplashScreen)
@@ -29,7 +25,7 @@ AnimatedSplashScreen::AnimatedSplashScreen(QMainWindow* mw, QWidget *parent) :
     videoWidget = new QVideoWidget(this);
 
     // Impostiamo la sorgente video
-    mediaPlayer->setSource(QUrl(VIDEO_PATH));
+    mediaPlayer->setSource(QUrl("qrc:/splash.mp4"));
     // Impostiamo l'output video sulla finestra
     mediaPlayer->setVideoOutput(videoWidget);
     // Impostiamo le dimensioni del QVideoWidget uguali a quelle della finestra
@@ -62,4 +58,10 @@ void AnimatedSplashScreen::closeWindow()
         // Chiudiamo la finestra con il video
         this->close();
     }
+}
+
+void AnimatedSplashScreen::setScreenSize(int width, int height)
+{
+    SCREEN_WIDTH = width;
+    SCREEN_HEIGHT = height;
 }
